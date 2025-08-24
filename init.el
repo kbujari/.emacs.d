@@ -192,18 +192,17 @@
   :ensure t)
 
 (use-package eglot
-  :hook ((rust-mode
-          nix-mode
-          tuareg-mode
-          haskell-mode
-          erlang-mode
-          typst-ts-mode)
-         . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
                '(erlang-mode . ("elp" "server")))
-
-  (setq eglot-ignored-server-capabilities '(:inlayHintProvider))
+  :custom
+  (eglot-ignored-server-capabilities
+   '(:inlayHintProvider
+     :documentHighlightProvider
+     :colorProvider
+     :documentOnTypeFormattingProvider
+     :documentRangeFormattingProvider
+     :foldingRangeProvider))
   :bind (:map eglot-mode-map
          ("C-c c a" . eglot-code-actions)
          ("C-c c r" . eglot-rename)
