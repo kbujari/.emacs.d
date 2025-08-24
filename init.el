@@ -27,6 +27,13 @@
         auto-save-default nil
         make-backup-files nil)
 
+;; Conditionally enable HTTP proxy before package init
+(when-let* ((proxy (getenv "FWDPROXY")))
+  (setopt url-proxy-services
+          `(("no_proxy" . "^localhost")
+            ("http"     . ,proxy)
+            ("https"    . ,proxy))))
+
 (require 'package)
 
 (add-to-list 'package-archives
