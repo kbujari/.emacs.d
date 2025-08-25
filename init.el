@@ -162,7 +162,7 @@
 
 (use-package erlang
   :ensure t
-  :mode "\\.[eh]rl\\'")
+  :mode ("\\.[eh]rl\\'" . erlang-mode))
 
 (use-package typst-ts-mode
   :ensure t
