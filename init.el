@@ -61,6 +61,13 @@
 (when (fboundp 'repeat-mode)
   (add-hook 'after-init-hook 'repeat-mode))
 
+;; Properly parse ANSI escape codes in compile mode
+(when (fboundp 'ansi-color-compilation-filter)
+  (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter))
+
+;; Automatically scroll compile output when buffer is full
+(setopt compilation-scroll-output t)
+
 ;; General editor preferences
 (setopt column-number-mode t
         case-fold-search t
