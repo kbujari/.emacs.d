@@ -94,6 +94,21 @@
   (set-face-attribute 'default nil :font "Iosevka" :height 124)
   (set-face-attribute 'fixed-pitch nil :family "Iosevka"))
 
+;; TRAMP performance tuning
+(setopt remote-file-name-inhibit-locks t
+        remote-file-name-inhibit-auto-save-visited t
+        tramp-use-scp-direct-remote-copying t
+        tramp-copy-size-limit (* 1024 1024)
+        tramp-verbose 2)
+
+(connection-local-set-profile-variables
+ 'remote-direct-async-process
+ '((tramp-direct-async-process . t)))
+
+(connection-local-set-profiles
+ '(:application tramp :protocol "scp")
+ 'remote-direct-async-process)
+
 (use-package mu4e
   :ensure nil
   :custom
