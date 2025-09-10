@@ -117,10 +117,10 @@
         mu4e-confirm-quit nil         ;; don't ask to quit
         mu4e-change-filenames-when-moving t))
 
-(use-package ef-themes
+(use-package almost-mono-themes
   :ensure t
   :config
-  (load-theme 'ef-dream t))
+  (load-theme 'almost-mono-black t))
 
 (use-package meow
   :ensure t
@@ -146,6 +146,9 @@
   (setq completion-styles '(orderless basic))
   (setq completion-category-defaults nil)
   (setq completion-category-overrides nil))
+
+(use-package consult
+  :ensure t)
 
 (use-package corfu
   :ensure t
