@@ -25,6 +25,11 @@
 (setopt indent-tabs-mode nil
         tab-width 2)
 
+;; Disable line wrapping for code
+(add-hook 'prog-mode-hook (lambda ()
+                            (visual-line-mode -1)
+                            (toggle-truncate-lines 1)))
+
 ;; Disable emacs generated files (.#emacsa8932) (#file#) (file~)
 (setopt create-lockfiles nil
         auto-save-default nil
@@ -109,13 +114,13 @@
  '(:application tramp :protocol "scp")
  'remote-direct-async-process)
 
-(use-package mu4e
-  :ensure nil
-  :custom
-  (setq mu4e-get-mail-command "mbsync -a"
-        message-kill-buffer-on-exit t ;; don't keep message buffers
-        mu4e-confirm-quit nil         ;; don't ask to quit
-        mu4e-change-filenames-when-moving t))
+;; (use-package mu4e
+;;   :ensure nil
+;;   :custom
+;;   (setq mu4e-get-mail-command "mbsync -a"
+;;         message-kill-buffer-on-exit t ;; don't keep message buffers
+;;         mu4e-confirm-quit nil         ;; don't ask to quit
+;;         mu4e-change-filenames-when-moving t))
 
 (use-package almost-mono-themes
   :ensure t
@@ -148,7 +153,8 @@
   (setq completion-category-overrides nil))
 
 (use-package consult
-  :ensure t)
+  :ensure t
+  :bind (("C-x /" . consult-ripgrep)))
 
 (use-package corfu
   :ensure t
@@ -185,6 +191,10 @@
   :ensure t
   :mode "\\.hs\\'")
 
+(use-package python-mode
+  :ensure t
+  :mode ("\\.py\\'" "\\.m?cconf\\'" "\\.cinc\\'"))
+
 (use-package erlang
   :ensure t
   :mode ("\\.[eh]rl\\'" . erlang-mode))
@@ -202,7 +212,7 @@
 (use-package paredit
   :ensure t
   :hook ((emacs-lisp-mode
-          eval-expression-minibuffer-setup-mode
+          eval-expression-minibuffer-setup-hook
           lisp-mode
           lisp-interaction-mode
           ielm-mode
@@ -216,8 +226,13 @@
 (use-package magit
   :ensure t)
 
+(use-package eat
+  :ensure t)
+
 (use-package eglot
   :config
+  (setopt eglot-server-programs
+          (assq-delete-all 'erlang-mode eglot-server-programs))
   (add-to-list 'eglot-server-programs
                '(erlang-mode . ("elp" "server")))
   :custom
@@ -229,15 +244,12 @@
      :documentRangeFormattingProvider
      :foldingRangeProvider))
   :bind (:map eglot-mode-map
-         ("C-c c a" . eglot-code-actions)
-         ("C-c c r" . eglot-rename)
-         ("C-c c f" . eglot-format)
-         ("C-c c b" . eglot-format-buffer)
-         ("C-c c i" . eglot-find-implementation)
-         ("C-c c d" . eglot-find-declaration)
-         ("C-c c t" . eglot-find-typeDefinition)
-         ("C-c c z" . eglot-reconnect)))
+              ("C-c c a" . eglot-code-actions)
+              ("C-c c r" . eglot-rename)
+              ("C-c c z" . eglot-reconnect)))
 
 (use-package envrc
   :ensure t
   :hook (after-init . envrc-global-mode))
+
+(eshell)
