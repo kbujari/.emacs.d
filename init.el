@@ -127,13 +127,13 @@
   :config
   (load-theme 'almost-mono-black t))
 
-(use-package meow
-  :ensure t
-  :config
-  (require 'meow-binds)
-  (setq meow-use-clipboard t)
-  (meow-setup)
-  (meow-global-mode 1))
+;; (use-package meow
+;;   :ensure t
+;;   :config
+;;   (require 'meow-binds)
+;;   (setq meow-use-clipboard t)
+;;   (meow-setup)
+;;   (meow-global-mode 1))
 
 (use-package vertico
   :ensure t
@@ -147,10 +147,10 @@
 
 (use-package orderless
   :ensure t
-  :config
-  (setq completion-styles '(orderless basic))
-  (setq completion-category-defaults nil)
-  (setq completion-category-overrides nil))
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides nil))
 
 (use-package consult
   :ensure t
