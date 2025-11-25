@@ -227,7 +227,8 @@
   :ensure t)
 
 (use-package eat
-  :ensure t)
+  :ensure t
+  :hook ((eshell-first-time-mode . eat-eshell-mode)))
 
 (use-package eglot
   :config
