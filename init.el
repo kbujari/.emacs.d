@@ -127,13 +127,13 @@
   :config
   (load-theme 'almost-mono-black t))
 
-;; (use-package meow
-;;   :ensure t
-;;   :config
-;;   (require 'meow-binds)
-;;   (setq meow-use-clipboard t)
-;;   (meow-setup)
-;;   (meow-global-mode 1))
+(use-package meow
+  :ensure t
+  :config
+  (require 'meow-binds)
+  (setq meow-use-clipboard t)
+  (meow-setup)
+  (meow-global-mode 1))
 
 (use-package vertico
   :ensure t
