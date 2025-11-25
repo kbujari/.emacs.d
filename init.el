@@ -247,6 +247,7 @@
   :bind (:map eglot-mode-map
               ("C-c c a" . eglot-code-actions)
               ("C-c c r" . eglot-rename)
+              ("C-c c f" . eglot-format)
               ("C-c c z" . eglot-reconnect)))
 
 (use-package envrc
