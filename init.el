@@ -51,7 +51,8 @@
 (package-initialize)
 
 (when (fboundp 'display-line-numbers-mode)
-  (setopt display-line-numbers-width 3)
+  (setopt display-line-numbers-width 3
+          display-line-numbers-type 'relative)
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 (when (boundp 'display-fill-column-indicator)
