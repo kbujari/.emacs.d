@@ -211,7 +211,7 @@
 
 (use-package paredit
   :ensure t
-  :bind (:map paredit-mode-map ("C-j" . nil))
+  :bind (:map paredit-mode-map ("RET" . nil))
   :hook ((emacs-lisp-mode
           eval-expression-minibuffer-setup-hook
           lisp-mode
