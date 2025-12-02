@@ -93,7 +93,15 @@
 (when (fboundp 'which-key-mode)
   (add-hook 'after-init-hook 'which-key-mode))
 
+(when (fboundp 'fido-vertical-mode)
+  (add-hook 'after-init-hook 'fido-vertical-mode))
+
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+
+(setopt completion-styles '(initials flex)
+        completions-max-height 10
+        completions-format 'one-column
+        completions-auto-select t)
 
 (when (member "Iosevka" (font-family-list))
   (set-face-attribute 'default nil :font "Iosevka" :height 124)
@@ -135,32 +143,19 @@
   (meow-setup)
   (meow-global-mode 1))
 
-(use-package vertico
-  :ensure t
-  :hook after-init
-  :custom
-  (vertico-cycle t))
-
 (use-package marginalia
   :ensure t
   :hook after-init)
-
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-defaults nil)
-  (completion-category-overrides nil))
 
 (use-package consult
   :ensure t
   :bind (("C-x /" . consult-ripgrep)))
 
-(use-package corfu
-  :ensure t
-  :hook (after-init . global-corfu-mode)
-  :config
-  (keymap-unset corfu-map "RET"))
+;; (use-package corfu
+;;   :ensure t
+;;   :hook (after-init . global-corfu-mode)
+;;   :config
+;;   (keymap-unset corfu-map "RET"))
 
 (use-package dired
   :ensure nil
