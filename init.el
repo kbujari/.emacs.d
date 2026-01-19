@@ -168,7 +168,8 @@
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
   (delete-by-moving-to-trash t)
-  (dired-dwim-target t))
+  (dired-dwim-target t)
+  (dired-kill-when-opening-new-dired-buffer t))
 
 (use-package nix-mode
   :ensure t
