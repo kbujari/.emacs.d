@@ -57,7 +57,8 @@
 
 (when (boundp 'display-fill-column-indicator)
   (setopt indicate-buffer-boundaries 'left
-          display-fill-column-indicator-character ?┊)
+          display-fill-column-indicator-character ?┊
+          fill-column 80)
   (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode))
 
 (when (fboundp 'show-paren-mode)
