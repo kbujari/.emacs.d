@@ -233,12 +233,11 @@
   :ensure t
   :hook ((eshell-first-time-mode . eat-eshell-mode)))
 
-(use-package eglot
-  :config
-  (setopt eglot-server-programs
-          (assq-delete-all 'erlang-mode eglot-server-programs))
+(with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
-               '(erlang-mode . ("elp" "server")))
+               '(erlang-mode . ("elp" "server"))))
+
+(use-package eglot
   :custom
   (eglot-ignored-server-capabilities
    '(:inlayHintProvider
@@ -247,6 +246,7 @@
      :documentOnTypeFormattingProvider
      :documentRangeFormattingProvider
      :foldingRangeProvider))
+  (eglot-code-action-indications '(mode-line))
   :bind (:map eglot-mode-map
               ("C-c c a" . eglot-code-actions)
               ("C-c c r" . eglot-rename)
