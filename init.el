@@ -151,7 +151,9 @@
 
 (use-package consult
   :ensure t
-  :bind (("C-x /" . consult-ripgrep)))
+  :bind (("C-x /" . consult-ripgrep)
+         ([remap goto-line] . consult-goto-line)
+         ([remap switch-to-buffer] . consult-buffer)))
 
 ;; (use-package corfu
 ;;   :ensure t
