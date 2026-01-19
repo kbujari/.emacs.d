@@ -193,11 +193,13 @@
 
 (use-package python-mode
   :ensure t
-  :mode ("\\.py\\'" "\\.m?cconf\\'" "\\.cinc\\'"))
+  :mode ("\\.py\\'" "\\.m?cconf\\'" "\\.cinc\\'" "BUCK" "PACKAGE"))
 
 (use-package erlang
   :ensure t
-  :mode ("\\.[eh]rl\\'" . erlang-mode))
+  :mode ("\\.[eh]rl\\'" . erlang-mode)
+  :custom
+  (project-vc-extra-root-markers '("rebar.config")))
 
 (use-package typst-ts-mode
   :ensure t
