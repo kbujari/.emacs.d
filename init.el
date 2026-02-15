@@ -19,6 +19,7 @@
 ;; Remove extraneous UI elements
 (setopt inhibit-startup-message t
         inhibit-splash-screen t
+        ring-bell-function 'ignore
         use-file-dialog nil)
 
 ;; Insert tabs as spaces, render tabs as 2 spaces
