@@ -260,4 +260,6 @@
   :ensure t
   :hook (after-init . envrc-global-mode))
 
-(eshell)
+;; Start eshell unless evaluating init.el
+(unless (string-equal "init.el" (format "%s" (current-buffer)))
+  (eshell))
