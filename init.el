@@ -199,7 +199,9 @@
 
 (use-package python-mode
   :ensure t
-  :mode ("\\.py\\'" "\\.m?cconf\\'" "\\.cinc\\'" "BUCK" "PACKAGE"))
+  :mode ("\\.py\\'" "\\.bzl'"
+         "\\.m?cconf\\'" "\\.cinc\\'" "\\.tw\\'"
+         "BUCK" "PACKAGE"))
 
 (use-package erlang
   :ensure t
