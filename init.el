@@ -57,7 +57,8 @@
 (when (fboundp 'display-line-numbers-mode)
   (setopt display-line-numbers-width 3
           display-line-numbers-type 'relative)
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (add-hook 'text-mode-hook 'display-line-numbers-mode))
 
 (when (boundp 'display-fill-column-indicator)
   (setopt indicate-buffer-boundaries 'left
