@@ -147,10 +147,11 @@
 
 (use-package meow
   :ensure t
+  :custom
+  (meow-use-clipboard t)
+  (meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   :config
   (require 'meow-binds)
-  (setq meow-use-clipboard t)
-  (meow-setup)
   (meow-global-mode 1))
 
 (use-package marginalia
