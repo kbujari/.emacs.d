@@ -204,7 +204,7 @@
 
 (use-package python-mode
   :ensure t
-  :mode ("\\.py\\'" "\\.bzl'"
+  :mode ("\\.py\\'" "\\.bzl\\'"
          "\\.m?cconf\\'" "\\.cinc\\'" "\\.tw\\'"
          "BUCK" "PACKAGE"))
 
