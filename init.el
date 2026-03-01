@@ -164,7 +164,9 @@
          ([remap goto-line] . consult-goto-line)
          ([remap switch-to-buffer] . consult-buffer)
          ([remap comint-history-isearch-backward-regexp] . consult-history)
-         ([remap eshell-previous-matching-input] . consult-history)))
+         ([remap eshell-previous-matching-input] . consult-history))
+  :custom
+  (completion-in-region-function #'consult-completion-in-region))
 
 ;; (use-package corfu
 ;;   :ensure t
