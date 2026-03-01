@@ -36,6 +36,9 @@
         auto-save-default nil
         make-backup-files nil)
 
+;; Disable vc-mode entirely
+(setopt vc-handled-backends nil)
+
 ;; Conditionally enable HTTP proxy before package init
 (when-let* ((proxy (getenv "FWDPROXY")))
   (setopt url-proxy-services
