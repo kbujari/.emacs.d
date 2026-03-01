@@ -79,6 +79,9 @@
 ;; Automatically scroll compile output when buffer is full
 (setopt compilation-scroll-output t)
 
+;; Bind recompile globally
+(global-set-key [f6] 'recompile)
+
 ;; General editor preferences
 (setopt column-number-mode t
         case-fold-search t
