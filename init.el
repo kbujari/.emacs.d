@@ -237,6 +237,10 @@
   :ensure t
   :mode "\\.kdl\\'")
 
+(use-package terraform-mode
+  :ensure t
+  :mode "\\.tf\\'")
+
 (use-package magit
   :ensure t)
 
