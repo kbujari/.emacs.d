@@ -137,10 +137,12 @@
 ;;         mu4e-confirm-quit nil         ;; don't ask to quit
 ;;         mu4e-change-filenames-when-moving t))
 
-(use-package almost-mono-themes
-  :ensure t
-  :config
-  (load-theme 'almost-mono-black t))
+;; (use-package almost-mono-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'almost-mono-black t))
+
+(load-theme 'wombat t)
 
 (use-package meow
   :ensure t
@@ -245,6 +247,12 @@
 (use-package magit
   :ensure t)
 
+(use-package flymake
+  :ensure nil
+  :custom
+  (flymake-show-diagnostics-at-end-of-line t)
+  (flymake-wrap-around t)
+  (flymake-autoresize-margins t))
 (use-package eat
   :ensure t
   :hook ((eshell-first-time-mode . eat-eshell-mode)))
