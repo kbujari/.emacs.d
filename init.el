@@ -97,8 +97,8 @@
           auto-revert-verbose nil)
   (add-hook 'after-init-hook 'global-auto-revert-mode))
 
-(when (fboundp 'which-key-mode)
-  (add-hook 'after-init-hook 'which-key-mode))
+;; (when (fboundp 'which-key-mode)
+;;   (add-hook 'after-init-hook 'which-key-mode))
 
 (when (fboundp 'fido-vertical-mode)
   (add-hook 'after-init-hook 'fido-vertical-mode))
