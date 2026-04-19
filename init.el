@@ -144,14 +144,14 @@
 
 (load-theme 'wombat t)
 
-(use-package meow
-  :ensure t
-  :custom
-  (meow-use-clipboard t)
-  (meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
-  :config
-  (require 'meow-binds)
-  (meow-global-mode 1))
+;; (use-package meow
+;;   :ensure t
+;;   :custom
+;;   (meow-use-clipboard t)
+;;   (meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+;;   :config
+;;   (require 'meow-binds)
+;;   (meow-global-mode 1))
 
 (use-package marginalia
   :ensure t
