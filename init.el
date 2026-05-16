@@ -165,7 +165,9 @@
          ([remap comint-history-isearch-backward-regexp] . consult-history)
          ([remap eshell-previous-matching-input] . consult-history))
   :custom
-  (completion-in-region-function #'consult-completion-in-region))
+  (completion-in-region-function #'consult-completion-in-region)
+  (xref-show-xrefs-function #'consult-xref)
+  (xref-show-definitions-function #'consult-xref))
 
 ;; (use-package corfu
 ;;   :ensure t
